@@ -6,9 +6,11 @@ SDL_INSTALL_PATH="$PS3DEV/portlibs/ppu/"
 CFLAGS="-I$SDL_INSTALL_PATH/include/SDL -I$PS3DEV/portlibs/ppu/include/ -I$PS3DEV/portlibs/ppu/include/freetype2 -I$PSL1GHT/ppu/include/"
 LDFLAGS="-L$SDL_INSTALL_PATH/lib -L$PSL1GHT/ppu/lib -L$PS3DEV/portlibs/ppu/lib -lrt -llv2 -laudio"
 PKG_CONFIG_PATH="$PS3DEV/portlibs/ppu/lib/pkgconfig"
+SDL_CONFIG=$PS3DEV/portlibs/ppu/bin/sdl-config
 export CFLAGS
 export LDFLAGS
 export PKG_CONFIG_PATH
 export SDL_INSTALL_PATH
+export SDL_CONFIG
 for SCRIPT in scripts/*.sh; do "$SCRIPT" || { echo "$SCRIPT: Failed."; exit 1; } done
 
